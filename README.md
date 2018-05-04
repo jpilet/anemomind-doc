@@ -85,9 +85,8 @@ API entries:
 
 The Boat data structure:
 
-|--------------|------------|----------------------------------------------------|
 | Field        | Type       | Description                                        |
-|--------------|------------|----------------------------------------------------|
+| ------------ | ---------- | -------------------------------------------------- |
 | _id          | string     | the boat identifier (boatid)                       |
 | name         | string     | boat name                                          |
 | publicAccess | boolean    | true iif boat access is public. Otherwise, access  |
@@ -101,7 +100,6 @@ The Boat data structure:
 | readers      | [User]     | list of users with read-only access                |
 | admins       | [User]     | list of users with read-write access               |
 | sails        | [string]   | list of sail configurations                        |
-|--------------|------------|----------------------------------------------------|
 
 
 Uploading data logs on anemolab
@@ -109,42 +107,35 @@ Uploading data logs on anemolab
 
 (note: this API is not yet functional)
 
-|--------------------------------|------------------------------------------------|
-| GET /api/files/boatid(?s=DATE) | List uploaded file. Optionally specify a date. |
-|                                | If specified, only file uploaded after the     |
-|                                | given date will be returned.                   |
-|                                | The date is specified in the following format: |
-|                                | YYYY-MM-DDTHH:MM:SS                            |
-|                                | For example: 2018-02-16T09:01:48               |
-|--------------------------------|------------------------------------------------|
+| GET /api/files/boatid(?s=DATE) | List uploaded file. Optionally specify a date. 
+                                   If specified, only file uploaded after the     
+                                   given date will be returned.                   
+                                   The date is specified in the following format: 
+                                   YYYY-MM-DDTHH:MM:SS                            
+                                   For example: 2018-02-16T09:01:48               |
 | POST /api/files/boatid         | Upload a new data log file                     |
-|--------------------------------|------------------------------------------------|
 
 
 Uploads pictures and comments
 -----------------------------
 
-|---------------------------------|------------------------------------------------|
 | GET /api/events/$boatid         | Get all Event objects for a given boat         |
 | POST /api/events                | Add a new Event                                |
 | GET /api/events/$eventid        | Get a particular event                         |
 | POST /api/events/photo/$boatid  | Add a photo to the given boat                  |
 | GET /api/events/photo/$photoid  | Get a photo or a thumbnail                     |
 | POST /api/events/photo/$photoid | Upload a new photo                             |
-|---------------------------------|------------------------------------------------|
 
 ### Event data structure
 
-|-----------|----------|----------------------------------------------------------|
 | Field     | type     | description                                              |
-|-----------|----------|----------------------------------------------------------|
+| --------- | -------- | -------------------------------------------------------- |
 | author    | string   | userid of the author                                     |
 | comment   | string?  | Comment (free text) typed by the user. Optional.         |
 | photo     | string?  | Identifier of a photo, UUID format. Optional.            |
 | when      | Date     | Date/time of when the note/comment has been taken.       |
 | latitude  | number   | Coordinate of the boat when the event took place (deg).  |
 | longitude | number   | Coordinate of the boat when the event took place (deg).  |
-|-----------|----------|----------------------------------------------------------|
 
 ### Add a new Event
 
