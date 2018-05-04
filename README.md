@@ -107,6 +107,8 @@ Uploading data logs on anemolab
 
 (note: this API is not yet functional)
 
+| HTTP command                    | description                                    |
+| ------------------------------- | ---------------------------------------------- |
 | GET /api/files/boatid(?s=DATE) | List uploaded file. Optionally specify a date. 
                                    If specified, only file uploaded after the     
                                    given date will be returned.                   
@@ -119,6 +121,8 @@ Uploading data logs on anemolab
 Uploads pictures and comments
 -----------------------------
 
+| HTTP command                    | description                                    |
+| ------------------------------- | ---------------------------------------------- |
 | GET /api/events/$boatid         | Get all Event objects for a given boat         |
 | POST /api/events                | Add a new Event                                |
 | GET /api/events/$eventid        | Get a particular event                         |
