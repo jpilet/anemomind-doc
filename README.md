@@ -102,20 +102,15 @@ The Boat data structure:
 | sails        | [string]   | list of sail configurations                        |
 
 
-Uploading data logs on anemolab
--------------------------------
+Uploading data logs
+-------------------
 
-(note: this API is not yet functional)
-
-| HTTP command                    | description                                    |
-| ------------------------------- | ---------------------------------------------- |
-| GET /api/files/boatid(?s=DATE) | List uploaded file. Optionally specify a date. 
-                                   If specified, only file uploaded after the     
-                                   given date will be returned.                   
-                                   The date is specified in the following format: 
-                                   YYYY-MM-DDTHH:MM:SS                            
-                                   For example: 2018-02-16T09:01:48               |
-| POST /api/files/boatid         | Upload a new data log file                     |
+| HTTP command                     | description                                    |
+| -------------------------------- | ---------------------------------------------- |
+| POST /api/files/boatid           | Upload a new data log file (or files)          |
+| GET /api/files/boatid            | List uploaded file. Optionally specify a date. |
+| GET /api/files/boatid/filename   | Get details about <filename>                   |
+| DELETE /api/files/boatid/filename| Delete <filename>                              |
 
 
 Uploads pictures and comments
