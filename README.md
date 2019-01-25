@@ -25,6 +25,7 @@ Anemolab authentication process
     "password":"clear text password"
   }
   ```
+  Note that Content-Type should be set to application/json.
 
   In case of success, status will be 200 and the response will be similar to:
   ```
@@ -112,6 +113,7 @@ Uploading data logs
 | GET /api/files/boatid/filename   | Get details about <filename>                   |
 | DELETE /api/files/boatid/filename| Delete <filename>                              |
 
+POST to /api/files/boatid has to be made using Content-Type: multipart/form-data.
 
 Uploads pictures and comments
 -----------------------------
