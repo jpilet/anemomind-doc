@@ -55,6 +55,16 @@ Anemolab authentication process
   after creating a user.
 
 
+  curl example:
+  ```
+  curl \
+    -H "Content-Type: application/json"  \
+    --request POST \
+    --data '{"email":"user@domain.com","password":"XXX"}' \
+    https://anemolab.com/auth/local
+```
+
+
 3. Registered users can use their token to do registered queries by adding the
    following header to the request:
    ``` Authorization: Bearer $token ```
@@ -141,9 +151,21 @@ Uploads pictures and comments
 ### Add a new Event
 
 Call POST /api/events with an Event object containing at least:
-- author: the userid of the author
-- when: the date/time of event
-- either comment or photo containing
+- boat: the boat id the comment should be attached to
+- author: the userid of the user who wrote the comment
+- when: the date/time of event. [Format][https://tools.ietf.org/html/rfc2822#page-14] UTC is assumed if no timezone is specified.
+- comment: the text of the comment (optional)
+- photo: a string containing the filename (UUID.jpg) of the picture (optional)
+
+For example, to post "Hello world", you would do a request similar to this:
+```
+curl  \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer eyJ...Yhw" \
+  --request POST \
+  --data '{"when": "2016-09-19T11:45:00Z", "comment":"Hello, world!", "author":"560d07bbcd1054542579f5a3", "boat":"5aabe889cda9b6b0de4ed194"}' \
+  https://anemolab.com/api/events
+```
 
 ### Get a photo or a thumbnail
 
@@ -164,3 +186,12 @@ Similarly, to have a thumbnail of a fixed height but variable width, use:
 
 ### Upload a new photo
 
+Call POST /api/events/photo/boatId with a multipart/form request containing one or more JPEG file.
+Each file has to be named with a valid UUID, followed by '.jpg'.
+
+Here's the regexp validating the filename:
+```
+[A-F0-9]{8}-[A-F0-9]{4}-4[A-F0-9]{3}-[89aAbB][A-F0-9]{3}-[A-F0-9]{12}.jpg
+```
+
+Note: posting twice with the same UUID will overwrite the photo.
