@@ -191,7 +191,7 @@ Each file has to be named with a valid UUID, followed by '.jpg'.
 
 Here's the regexp validating the filename:
 ```
-[A-F0-9]{8}-[A-F0-9]{4}-4[A-F0-9]{3}-[89aAbB][A-F0-9]{3}-[A-F0-9]{12}.jpg
+[A-F0-9]{8}-[A-F0-9]{4}-4[A-F0-9]{3}-[89aAbB][A-F0-9]{3}-[A-F0-9]{12}\.jpg
 ```
 
 Note: posting twice with the same UUID will overwrite the photo.
