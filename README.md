@@ -186,12 +186,13 @@ Similarly, to have a thumbnail of a fixed height but variable width, use:
 
 ### Upload a new photo
 
-Call POST /api/events/photo/boatId with a multipart/form request containing one or more JPEG file.
+Call POST /api/events/photo/boatId with a multipart/form-data request containing one or more JPEG file.
 Each file has to be named with a valid UUID, followed by '.jpg'.
 
 Here's the regexp validating the filename:
 ```
-[A-F0-9]{8}-[A-F0-9]{4}-4[A-F0-9]{3}-[89aAbB][A-F0-9]{3}-[A-F0-9]{12}\.jpg
+[A-F0-9]{8}-[A-F0-9]{4}-4[A-F0-9]{3}-[89AB][A-F0-9]{3}-[A-F0-9]{12}\.jpg
 ```
 
 Note: posting twice with the same UUID will overwrite the photo.
+Note: UUID are considered case insensitive. Upper cases are equivalent to their lower case counterpart.
