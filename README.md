@@ -141,6 +141,7 @@ Uploads pictures and comments
 
 | Field     | type     | description                                              |
 | --------- | -------- | -------------------------------------------------------- |
+| boat      | string   | the boat id the comment is attached to                   |
 | author    | string   | userid of the author                                     |
 | comment   | string?  | Comment (free text) typed by the user. Optional.         |
 | photo     | string?  | Identifier of a photo, UUID format. Optional.            |
